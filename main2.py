@@ -20,4 +20,4 @@ question = 'cara memasak cumi?'
 response = so_rag.rag_chain(question)
 
 # Mencetak konten pesan dari respons
-print(response[0])
+print(response[0]['message']['content'])
