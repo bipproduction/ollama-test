@@ -20,4 +20,4 @@ question = 'What are not true salmon?'
 response = so_rag.rag_chain(question)
 
 # Mencetak konten pesan dari respons
-print(response["message"]["content"])
+print(response)
