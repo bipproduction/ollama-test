@@ -1,1 +1,7 @@
 simple_ollama_rag
+chromadb==0.4.23
+huggingface-hub==0.20.3
+langchain-community==0.0.24
+langchain-core==0.1.26
+ollama==0.1.6
+semantic-text-splitter==0.6.3
