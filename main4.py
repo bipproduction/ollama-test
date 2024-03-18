@@ -11,12 +11,23 @@ so_rag = SimpleOllamaRag(
     inference_config={"stop": ["\n"]},
 )
 
+# Memuat vektor jika belum dimuat
+vectorstore_loaded = False
+
+# Fungsi untuk memeriksa apakah vektor sudah dimuat
+def is_vectorstore_loaded():
+    global vectorstore_loaded
+    return vectorstore_loaded
+
 # Fungsi utama
 def main():
-    # Memuat vektor jika belum dimuat
-    if not so_rag.is_vectorstore_loaded():
+    global vectorstore_loaded
+
+    # Memeriksa apakah vektor sudah dimuat
+    if not is_vectorstore_loaded():
         print("Loading...")
         so_rag.load_vectorstore()
+        vectorstore_loaded = True
 
     print("Welcome to Simple Chat!")
     print("You can start chatting by typing your message. Enter 'exit' to quit.")
@@ -34,7 +45,7 @@ def main():
         response = so_rag.rag_chain(user_input)
 
         # Mencetak konten pesan dari respons
-        print("Bot:", response["message"]["content"])
+        print("Bot:", response[0]["message"]["content"])
 
 if __name__ == "__main__":
     main()
