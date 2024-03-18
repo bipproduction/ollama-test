@@ -15,9 +15,9 @@ so_rag = SimpleOllamaRag(
 so_rag.load_vectorstore()
 
 # Bertanya pertanyaan
-question = 'What are not true salmon?'
+question = 'cara memasak cumi?'
 # Mendapatkan respons dari RAG
 response = so_rag.rag_chain(question)
 
 # Mencetak konten pesan dari respons
-print(response)
+print(response["message"]["content"])
