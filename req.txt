@@ -1,5 +1,5 @@
 simple_ollama_rag
-chromadb==0.4.23
+chromadb==0.3.29
 huggingface-hub==0.20.3
 langchain-community==0.0.24
 langchain-core==0.1.26
