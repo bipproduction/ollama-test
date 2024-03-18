@@ -1,8 +1,5 @@
 from simple_ollama_rag import SimpleOllamaRag
-
-def main():
-    # Membuat instance dari SimpleOllamaRag
-    so_rag = SimpleOllamaRag(
+so_rag = SimpleOllamaRag(
         inference_model="phi",
         embeddings_model="nomic-embed-text",
         tokenizer_semantic_chunk="bert-base-uncased",
@@ -13,7 +10,11 @@ def main():
     )
 
     # Memuat vector store
-    so_rag.load_vectorstore()
+so_rag.load_vectorstore()
+
+def main():
+    # Membuat instance dari SimpleOllamaRag
+    
 
     print("Welcome to Simple Chat!")
     print("You can start chatting by typing your message. Enter 'exit' to quit.")
@@ -31,7 +32,7 @@ def main():
         response = so_rag.rag_chain(user_input)
 
         # Mencetak konten pesan dari respons
-        print("Bot:", response["message"]["content"])
+        print("Bot:", response[0]["message"]["content"])
 
 if __name__ == "__main__":
     main()
